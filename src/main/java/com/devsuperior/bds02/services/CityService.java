@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-@Transactional
+
 @Service
 public class CityService {
 
@@ -26,6 +26,7 @@ public class CityService {
         return list.stream().map(CityDTO::new).toList();
     }
 
+    @Transactional
     public CityDTO insert(CityDTO dto) {
         City entity = new City();
         entity.setName(dto.getName());
