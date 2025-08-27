@@ -6,6 +6,7 @@ import com.devsuperior.bds02.entities.Event;
 import com.devsuperior.bds02.repositories.EventRepoditory;
 import com.devsuperior.bds02.services.exceptions.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class EventService {
@@ -16,6 +17,7 @@ public class EventService {
         this.eventRepoditory = eventRepoditory;
     }
 
+    @Transactional
     public EventDTO update(Long id, EventDTO dto) {
 
         if (!eventRepoditory.existsById(id)) {
